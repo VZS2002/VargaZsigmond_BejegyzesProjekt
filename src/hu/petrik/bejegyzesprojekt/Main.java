@@ -33,6 +33,9 @@ public class Main {
         legtobblike();
         harmincot();
         tizenot();
+        rendezes();
+
+        System.out.println(bejegyzesek);
     }
 
     private static void listahozzaad() {
@@ -41,9 +44,9 @@ public class Main {
         int db = sc.nextInt();
         sc.nextLine();
         for (int i = 0; i < db; i++) {
-            System.out.printf("Adja meg a %d bejegyzés szerzőjét:", i + 1);
+            System.out.printf("Adja meg a %d. bejegyzés szerzőjét:", i + 1);
             String szerzo = sc.nextLine();
-            System.out.printf("Adjam eg a %d bejegyzés tartalmát:", i + 1);
+            System.out.printf("Adjam eg a %d. bejegyzés tartalmát:", i + 1);
             String tartalom = sc.nextLine();
             bejegyzesek.add(new Bejegyzes(szerzo, tartalom));
 
@@ -79,45 +82,58 @@ public class Main {
         bejegyzesek.get(1).setTartalom(bekertszoveg);
     }
 
-    private static void legtobblike()
-    {
-        int likeok =0;
+    private static void legtobblike() {
+        int likeok = 0;
         for (int i = 0; i < bejegyzesek.size(); i++) {
-            if ( bejegyzesek.get(i).getLikeok()>likeok)
-            {
-                likeok=bejegyzesek.get(i).getLikeok();
+            if (bejegyzesek.get(i).getLikeok() > likeok) {
+                likeok = bejegyzesek.get(i).getLikeok();
             }
 
         }
-        System.out.println("A legtöbb like száma:" + likeok);
+        System.out.println("A legtöbb likeok száma: " + likeok);
     }
-private static void harmincot()
-{
-    boolean van= false;
-    for (int i = 0; i < bejegyzesek.size(); i++) {
-        if ( bejegyzesek.get(i).getLikeok()>35)
-        {
-            van=true;
+
+    private static void harmincot() {
+        boolean van = false;
+        for (int i = 0; i < bejegyzesek.size(); i++) {
+            if (bejegyzesek.get(i).getLikeok() > 35) {
+                van = true;
+            }
+
         }
-
-    }
-    if (van==true){
-        System.out.println("Van 35 likenál többet kapott bejegyzés");
-    }
-    else if (van==false){
-        System.out.println("Nincs 35 likenál többet kapott bejegyzés");
-    }
-}
-
-private static void tizenot(){
-        int kevesebb=0;
-    for (int i = 0; i < bejegyzesek.size(); i++) {
-        if ( bejegyzesek.get(i).getLikeok()<15)
-        {
-           kevesebb++;
+        if (van == true) {
+            System.out.println("Van 35 likenál többet kapott bejegyzés");
+        } else if (van == false) {
+            System.out.println("Nincs 35 likenál többet kapott bejegyzés");
         }
+    }
 
+    private static void tizenot() {
+        int kevesebb = 0;
+        for (int i = 0; i < bejegyzesek.size(); i++) {
+            if (bejegyzesek.get(i).getLikeok() < 15) {
+                kevesebb++;
+            }
+
+        }
+        System.out.printf("%d olyan bejegyzés van, amire kevesebb mint 15 like érkezett.", kevesebb);
+        System.out.println("");
     }
-    System.out.printf("%d olyan bejegyzés van, amire kevesebb mint 15 like érkezett.",kevesebb);
+
+    private static void rendezes() {
+
+        int a = bejegyzesek.size();
+
+        for (int i = a - 1; i > 0; i--)
+            for (int b = 0; b < i; b++)
+                if (bejegyzesek.get(b).getLikeok() < bejegyzesek.get(b + 1).getLikeok()) {
+                    Bejegyzes bejegyzes = bejegyzesek.get(b);
+
+                    bejegyzesek.set(b, bejegyzesek.get(b + 1));
+                    bejegyzesek.set((b + 1), bejegyzes);
+                }
+
+        System.out.println("Átrendezett lista:");
+    }
+
 }
-    }
