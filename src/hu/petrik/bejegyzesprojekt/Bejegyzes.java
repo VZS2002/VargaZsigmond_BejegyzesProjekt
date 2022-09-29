@@ -52,10 +52,10 @@ public class Bejegyzes {
     @Override
     public String toString() {
         if (this.szerkesztve == this.letrejott) {
-            return String.format("%s - %d - %s\n  Szerkesztve: \n %s", this.szerzo, this.likeok, this.letrejott, this.tartalom);
+            return String.format("%s - %d - %s\n  Szerkesztve: \n %s \n", this.szerzo, this.likeok, this.letrejott, this.tartalom);
 
         } else {
-            return String.format("%s - %d - %s\n Szerkesztve: %s\n %s", this.szerzo, this.likeok, this.letrejott, this.szerkesztve, this.tartalom);
+            return String.format("%s - %d - %s\n Szerkesztve: %s\n %s \n", this.szerzo, this.likeok, this.letrejott, this.szerkesztve, this.tartalom);
 
         }
     }

@@ -4,10 +4,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.InputMismatchException;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 public class Main {
 
@@ -30,6 +27,7 @@ public class Main {
             System.out.println("Ismeretlen hiba");
         }
         System.out.println(bejegyzesek);
+        likeosztas();
     }
         private static void listahozzaad()
         {
@@ -57,6 +55,12 @@ public class Main {
                 sor = br.readLine();
             }
 
+        }
+
+        private static void likeosztas() {Random r = new Random();
+            for (int i = 0; i < bejegyzesek.size()*20; i++) {
+              bejegyzesek.get(r.nextInt(bejegyzesek.size())).like();
+            }
         }
 
     }
