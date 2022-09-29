@@ -26,8 +26,10 @@ public class Main {
         } catch (IOException e) {
             System.out.println("Ismeretlen hiba");
         }
-        System.out.println(bejegyzesek);
+
         likeosztas();
+        szovegcsere();
+        System.out.println(bejegyzesek);
     }
         private static void listahozzaad()
         {
