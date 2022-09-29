@@ -31,6 +31,7 @@ public class Main {
         szovegcsere();
         System.out.println(bejegyzesek);
         legtobblike();
+        harmincot();
     }
 
     private static void listahozzaad() {
@@ -89,5 +90,21 @@ public class Main {
         }
         System.out.println("A legtöbb like száma:" + likeok);
     }
+private static void harmincot()
+{
+    boolean van= false;
+    for (int i = 0; i < bejegyzesek.size(); i++) {
+        if ( bejegyzesek.get(i).getLikeok()>35)
+        {
+            van=true;
+        }
 
+    }
+    if (van==true){
+        System.out.println("Van 35 likenál többet kapott bejegyzés");
+    }
+    else if (van==false){
+        System.out.println("Nincs 35 likenál többet kapott bejegyzés");
+    }
+}
     }
