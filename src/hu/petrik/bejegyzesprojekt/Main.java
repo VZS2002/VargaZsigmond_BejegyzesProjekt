@@ -32,6 +32,7 @@ public class Main {
         System.out.println(bejegyzesek);
         legtobblike();
         harmincot();
+        tizenot();
     }
 
     private static void listahozzaad() {
@@ -106,5 +107,17 @@ private static void harmincot()
     else if (van==false){
         System.out.println("Nincs 35 likenál többet kapott bejegyzés");
     }
+}
+
+private static void tizenot(){
+        int kevesebb=0;
+    for (int i = 0; i < bejegyzesek.size(); i++) {
+        if ( bejegyzesek.get(i).getLikeok()<15)
+        {
+           kevesebb++;
+        }
+
+    }
+    System.out.printf("%d olyan bejegyzés van, amire kevesebb mint 15 like érkezett.",kevesebb);
 }
     }
