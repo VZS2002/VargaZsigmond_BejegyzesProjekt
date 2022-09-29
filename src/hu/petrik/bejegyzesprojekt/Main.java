@@ -62,5 +62,14 @@ public class Main {
               bejegyzesek.get(r.nextInt(bejegyzesek.size())).like();
             }
         }
+        private  static void szovegcsere()
+        {
+            String bekertszoveg;
+            Scanner sc = new Scanner(System.in);
+            System.out.println("Írd be az új szöveget");
+            bekertszoveg=sc.nextLine();
+
+            bejegyzesek.get(1).setTartalom(bekertszoveg);
+        }
 
     }
