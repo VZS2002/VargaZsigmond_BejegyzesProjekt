@@ -9,6 +9,7 @@ public class Bejegyzes {
 
     public void setTartalom(String tartalom) {
         this.tartalom = tartalom;
+        this.szerkesztve = LocalDateTime.now();
     }
 
     private String tartalom;
@@ -19,9 +20,9 @@ public class Bejegyzes {
     public Bejegyzes(String szerzo, String tartalom) {
         this.szerzo = szerzo;
         this.tartalom = tartalom;
-        this.likeok =0;
-        this.letrejott= LocalDateTime.now();
-        this.szerkesztve= LocalDateTime.now();
+        this.likeok = 0;
+        this.letrejott = LocalDateTime.now();
+        this.szerkesztve = LocalDateTime.now();
     }
 
     public String getSzerzo() {
@@ -44,19 +45,17 @@ public class Bejegyzes {
         return szerkesztve;
     }
 
-    public void like()
-    {
+    public void like() {
         this.likeok++;
     }
-    @Override
-    public String toString(){
-        if(this.szerkesztve == this.letrejott)
-        {
-            return String.format("%s - %d -s%\n" + "Szerkesztve:\n" + "%s", this.szerzo, this.likeok, this.letrejott, this.tartalom);
 
-        }
-else {
-    return String.format("%s - %d -s%\n" + "Szerkesztve: %s\n" + "%s", this.szerzo, this.likeok, this.letrejott, this.szerkesztve, this.tartalom);
+    @Override
+    public String toString() {
+        if (this.szerkesztve == this.letrejott) {
+            return String.format("%s - %d - %s\n  Szerkesztve: \n %s", this.szerzo, this.likeok, this.letrejott, this.tartalom);
+
+        } else {
+            return String.format("%s - %d - %s\n Szerkesztve: %s\n %s", this.szerzo, this.likeok, this.letrejott, this.szerkesztve, this.tartalom);
 
         }
     }
